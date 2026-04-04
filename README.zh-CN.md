@@ -6,9 +6,31 @@
 
 中文 | [English](./README.md)
 
+![Auto-Researcher Hero](./docs/images/readme-hero.svg)
+
 Auto-Researcher 是一个面向单用户、自托管场景的 ML/AI 自动科研平台，目标是把研究任务从研究简报、文献调研、idea 生成、proposal、实验规划与执行，一直到结果分析和论文草稿，串成一条可持续运行的自动化流程。
 
 它的核心不是“单次 prompt 自动写点东西”，而是一套可恢复、可追踪、可长期运行的研究编排系统。
+
+## 产品演示
+
+下面这个 GIF 来自真实本地运行页面，展示了默认英文控制台、实时流程看板、产物预览，以及一键切换到中文面板的效果。
+
+![Auto-Researcher 动态演示](./docs/images/readme-demo.gif)
+
+<details>
+<summary>展开查看完整界面截图</summary>
+
+![Auto-Researcher 英文项目设置界面](./docs/images/dashboard-setup-en.png)
+
+![Auto-Researcher 中文流程看板界面](./docs/images/dashboard-pipeline-zh.png)
+</details>
+
+## 架构概览
+
+![Auto-Researcher 架构图](./docs/images/architecture-overview.svg)
+
+整个平台把控制面、编排核心和执行平面拆成了明确边界，这样自动科研流程才能做到可恢复、可观测、可长期运行。
 
 ## 核心特性
 
@@ -18,19 +40,9 @@ Auto-Researcher 是一个面向单用户、自托管场景的 ML/AI 自动科研
 - 统一的多模型接入层：
   `anthropic_native`、`openai_native`、`openai_compatible`、`cli_agent`
 - 统一的算力目标抽象，支持 `local`、`docker`、`ssh`
-- 提供 Web 控制台，包含项目设置、实时流程看板、研究对话、成果产物、运行指标
+- 提供支持中英文切换的 Web 控制台，默认更适合英文开源受众展示
 - 以 artifact 为核心，所有关键输出写入 `artifacts/<project_id>/<run_id>/...`
 - 在 proposal、analysis、paper 阶段内置引用校验链路
-
-## 前端预览
-
-仓库内已经包含中文友好的前端控制台。下面的截图来自真实本地自托管运行页面，并会直接展示在 GitHub 仓库首页。
-
-![Auto-Researcher 控制台总览](./docs/images/dashboard-overview.png)
-
-![Auto-Researcher 实时流程看板](./docs/images/dashboard-pipeline.png)
-
-## 架构概览
 
 系统由六个核心子系统组成：
 

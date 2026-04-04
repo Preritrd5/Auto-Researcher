@@ -1,0 +1,163 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Auto-Researcher Hero</title>
+  <desc id="desc">Hero illustration for the Auto-Researcher README, showing the product identity, multilingual dashboard, and research pipeline from idea to paper.</desc>
+  <defs>
+    <linearGradient id="bg" x1="96" y1="48" x2="1184" y2="688" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F2E8"/>
+      <stop offset="0.55" stop-color="#F1E8DA"/>
+      <stop offset="1" stop-color="#E6D9C7"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(178 120) rotate(24.91) scale(366.749 252.389)">
+      <stop stop-color="#0F6D57" stop-opacity="0.23"/>
+      <stop offset="1" stop-color="#0F6D57" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1096 148) rotate(157.011) scale(323.051 228.03)">
+      <stop stop-color="#B06A18" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#B06A18" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFF8EF"/>
+      <stop offset="1" stop-color="#FAF1E5"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0F6D57"/>
+      <stop offset="1" stop-color="#1D8B6E"/>
+    </linearGradient>
+    <filter id="shadow" x="-40" y="-40" width="1360" height="800" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#2C3A35" flood-opacity="0.12"/>
+    </filter>
+    <filter id="soft" x="-20" y="-20" width="1320" height="760" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#3B2C1C" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" rx="36" fill="url(#bg)"/>
+  <rect width="1280" height="720" rx="36" fill="url(#glowA)"/>
+  <rect width="1280" height="720" rx="36" fill="url(#glowB)"/>
+
+  <g opacity="0.38">
+    <path d="M0 91H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M0 181H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M0 271H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M0 361H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M0 451H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M0 541H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M0 631H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M123 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M263 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M403 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M543 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M683 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M823 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M963 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+    <path d="M1103 0V720" stroke="#0F6D57" stroke-opacity="0.08"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="54" y="54" width="1172" height="612" rx="32" fill="#FFFCF7" fill-opacity="0.52"/>
+    <rect x="54.75" y="54.75" width="1170.5" height="610.5" rx="31.25" stroke="#FFF8EF" stroke-opacity="0.5" stroke-width="1.5"/>
+  </g>
+
+  <g>
+    <rect x="92" y="104" width="114" height="30" rx="15" fill="#E7F4EF"/>
+    <text x="149" y="124" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.24em">AUTO-RESEARCHER</text>
+
+    <text x="92" y="236" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#172723">From idea to paper,</text>
+    <text x="92" y="304" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#172723">with a durable research loop.</text>
+
+    <text x="92" y="362" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#485B54">Self-hosted ML and AI research orchestration with a realtime dashboard,</text>
+    <text x="92" y="396" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#485B54">multi-model routing, repair loops, artifacts, and bilingual operator UX.</text>
+  </g>
+
+  <g>
+    <rect x="92" y="446" width="144" height="38" rx="19" fill="#0F6D57"/>
+    <text x="164" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">FastAPI + Worker</text>
+
+    <rect x="248" y="446" width="120" height="38" rx="19" fill="#F5ECDF"/>
+    <text x="308" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Next.js UI</text>
+
+    <rect x="380" y="446" width="128" height="38" rx="19" fill="#F5ECDF"/>
+    <text x="444" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Claude / GPT / Qwen</text>
+
+    <rect x="520" y="446" width="118" height="38" rx="19" fill="#F5ECDF"/>
+    <text x="579" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Local / Docker / SSH</text>
+  </g>
+
+  <g>
+    <rect x="92" y="538" width="562" height="78" rx="26" fill="#FFF7EB"/>
+    <rect x="92.75" y="538.75" width="560.5" height="76.5" rx="25.25" stroke="#E8DAC3" stroke-width="1.5"/>
+    <text x="120" y="568" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#B06A18" letter-spacing="0.2em">PIPELINE</text>
+    <text x="120" y="596" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" fill="#172723">Brief -> Literature -> Ideas -> Proposal -> Experiments -> Analysis -> Paper</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="738" y="86" width="440" height="548" rx="30" fill="url(#panel)"/>
+    <rect x="738.75" y="86.75" width="438.5" height="546.5" rx="29.25" stroke="#EADCC7" stroke-width="1.5"/>
+
+    <rect x="770" y="114" width="376" height="84" rx="24" fill="#FFFCF8"/>
+    <text x="800" y="142" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.18em">CONTROL CENTER</text>
+    <text x="800" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#172723">Bilingual dashboard</text>
+    <text x="800" y="190" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#5D7068">English by default, Chinese one tap away.</text>
+
+    <rect x="1020" y="132" width="50" height="28" rx="14" fill="#0F6D57"/>
+    <text x="1045" y="150" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">EN</text>
+    <rect x="1078" y="132" width="58" height="28" rx="14" fill="#EFE6D8"/>
+    <text x="1107" y="150" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#51625C">中文</text>
+
+    <rect x="770" y="222" width="170" height="370" rx="24" fill="#FFFDF9"/>
+    <text x="796" y="252" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.18em">NAVIGATION</text>
+
+    <rect x="786" y="272" width="138" height="48" rx="18" fill="url(#accent)"/>
+    <text x="855" y="302" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Live Pipeline</text>
+
+    <rect x="786" y="332" width="138" height="48" rx="18" fill="#F4ECE0"/>
+    <text x="855" y="362" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Artifacts</text>
+
+    <rect x="786" y="392" width="138" height="48" rx="18" fill="#F4ECE0"/>
+    <text x="855" y="422" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Runs &amp; Metrics</text>
+
+    <rect x="786" y="452" width="138" height="48" rx="18" fill="#F4ECE0"/>
+    <text x="855" y="482" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Research Chat</text>
+
+    <rect x="786" y="518" width="138" height="56" rx="18" fill="#FBF5EA"/>
+    <text x="804" y="540" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#0F6D57" letter-spacing="0.16em">BUDGET</text>
+    <text x="804" y="566" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#172723">$0.00</text>
+
+    <rect x="960" y="222" width="186" height="370" rx="24" fill="#FFFDF9"/>
+    <text x="986" y="252" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.18em">PIPELINE STATUS</text>
+
+    <g>
+      <rect x="982" y="274" width="142" height="28" rx="14" fill="#E3F5EC"/>
+      <text x="1053" y="293" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#21744D">Completed</text>
+    </g>
+
+    <g>
+      <rect x="982" y="324" width="142" height="42" rx="16" fill="#F7F1E8"/>
+      <text x="1000" y="342" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#B06A18" letter-spacing="0.16em">STAGE 1</text>
+      <text x="1000" y="356" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Brief intake</text>
+    </g>
+
+    <g>
+      <rect x="982" y="376" width="142" height="42" rx="16" fill="#F7F1E8"/>
+      <text x="1000" y="394" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#B06A18" letter-spacing="0.16em">STAGE 4</text>
+      <text x="1000" y="408" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Idea ranking</text>
+    </g>
+
+    <g>
+      <rect x="982" y="428" width="142" height="42" rx="16" fill="#E7F4EF"/>
+      <text x="1000" y="446" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#0F6D57" letter-spacing="0.16em">STAGE 8</text>
+      <text x="1000" y="460" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Run + repair loop</text>
+    </g>
+
+    <g>
+      <rect x="982" y="480" width="142" height="42" rx="16" fill="#F7F1E8"/>
+      <text x="1000" y="498" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#B06A18" letter-spacing="0.16em">STAGE 10</text>
+      <text x="1000" y="512" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Paper export</text>
+    </g>
+
+    <g>
+      <rect x="960" y="548" width="186" height="44" rx="18" fill="#172723"/>
+      <text x="1053" y="576" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Realtime artifacts and metrics</text>
+    </g>
+  </g>
+</svg>

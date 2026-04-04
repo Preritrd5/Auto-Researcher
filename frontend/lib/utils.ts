@@ -12,8 +12,8 @@ export function apiUrl(path: string) {
   return `${base}${path}`;
 }
 
-export function currency(value: number) {
-  return new Intl.NumberFormat("zh-CN", {
+export function currency(value: number, locale = "en-US") {
+  return new Intl.NumberFormat(locale, {
     style: "currency",
     currency: "USD"
   }).format(value);

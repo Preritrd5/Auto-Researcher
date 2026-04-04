@@ -6,9 +6,31 @@
 
 [中文说明](./README.zh-CN.md) | English
 
+![Auto-Researcher hero](./docs/images/readme-hero.svg)
+
 Auto-Researcher is a single-user, self-hosted ML/AI research platform that automates the full workflow from research brief to proposal, experiment planning, execution, analysis, and paper drafting.
 
 It combines a durable orchestration backend, pluggable model providers, reproducible experiment runtimes, and a web control plane built for long-running autonomous research loops.
+
+## Product Demo
+
+The GIF below is captured from a real local run of the app. It shows the English-first dashboard, live pipeline board, artifact review, and the built-in Chinese toggle.
+
+![Auto-Researcher live demo](./docs/images/readme-demo.gif)
+
+<details>
+<summary>Full dashboard screenshots</summary>
+
+![Auto-Researcher English setup view](./docs/images/dashboard-setup-en.png)
+
+![Auto-Researcher Chinese pipeline view](./docs/images/dashboard-pipeline-zh.png)
+</details>
+
+## Architecture
+
+![Auto-Researcher architecture overview](./docs/images/architecture-overview.svg)
+
+The platform is split into explicit control-plane, orchestration, and execution boundaries so long-running research loops stay recoverable and inspectable.
 
 ## Highlights
 
@@ -18,19 +40,9 @@ It combines a durable orchestration backend, pluggable model providers, reproduc
 - Multi-provider LLM gateway:
   `anthropic_native`, `openai_native`, `openai_compatible`, and `cli_agent`
 - Compute target abstraction for `local`, `docker`, and `ssh` execution
-- Web dashboard with project setup, live pipeline board, chat, artifacts, and run metrics
+- Bilingual operator dashboard with English default and Chinese toggle
 - Artifact-first design with auditable outputs written to `artifacts/<project_id>/<run_id>/...`
 - Citation verification workflow for proposal, analysis, and paper stages
-
-## Frontend Preview
-
-The repository includes a Chinese-friendly operator dashboard out of the box. The screenshots below were captured from a real local self-hosted run with demo data.
-
-![Auto-Researcher dashboard overview](./docs/images/dashboard-overview.png)
-
-![Auto-Researcher live pipeline board](./docs/images/dashboard-pipeline.png)
-
-## Architecture
 
 The system is organized into six runtime subsystems:
 

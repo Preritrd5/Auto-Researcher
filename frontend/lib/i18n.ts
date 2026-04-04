@@ -1,0 +1,374 @@
+export type Language = "en" | "zh";
+
+export const LANGUAGE_STORAGE_KEY = "auto-researcher-language";
+
+export const languageMeta = {
+  en: {
+    label: "EN",
+    longLabel: "English",
+    htmlLang: "en",
+    locale: "en-US",
+    title: "Auto-Researcher | Research Control Center",
+    description: "Single-user self-hosted automated research platform"
+  },
+  zh: {
+    label: "中文",
+    longLabel: "简体中文",
+    htmlLang: "zh-CN",
+    locale: "zh-CN",
+    title: "Auto-Researcher | 自动科研控制台",
+    description: "单用户自托管自动科研平台"
+  }
+} as const;
+
+export const dictionaries = {
+  en: {
+    panes: {
+      setup: "Project Setup",
+      pipeline: "Live Pipeline",
+      chat: "Research Chat",
+      artifacts: "Artifacts",
+      runs: "Runs & Metrics"
+    },
+    status: {
+      completed: "Completed",
+      running: "Running",
+      queued: "Queued",
+      failed: "Failed",
+      stopped: "Stopped",
+      pending: "Pending",
+      active: "Active"
+    },
+    stages: {
+      brief_intake: "Brief Intake",
+      literature_scan: "Literature Scan",
+      idea_generation: "Idea Generation",
+      novelty_feasibility_ranking: "Novelty and Feasibility Ranking",
+      proposal_drafting: "Proposal Drafting",
+      experiment_planning: "Experiment Planning",
+      code_generation: "Code Generation",
+      experiment_run_refine_loop: "Experiment Run and Repair Loop",
+      analysis_result_to_claim: "Analysis and Claim Decision",
+      paper_drafting_review_export: "Paper Drafting, Review and Export"
+    },
+    failureClass: {
+      tooling: "Tooling",
+      code: "Code",
+      data: "Data",
+      resource: "Resource",
+      reasoning: "Reasoning",
+      citation: "Citation",
+      infra: "Infrastructure"
+    },
+    eventType: {
+      "run.completed": "Run Completed",
+      "stage.started": "Stage Started",
+      "stage.completed": "Stage Completed",
+      "stage.failed": "Stage Failed",
+      log: "Log",
+      "bus.degraded": "Event Bus Degraded"
+    },
+    common: {
+      unknown: "Unknown",
+      idle: "Idle",
+      none: "None",
+      file: "file",
+      noPrompt: "No explicit run prompt was provided.",
+      noConfig: "Nothing configured yet.",
+      noResponse: "No response yet.",
+      noArtifact: "No artifact selected yet.",
+      waitingEvents: "Waiting for WebSocket events.",
+      syncing: "Syncing...",
+      live: "Live",
+      objectiveMissing: "No research objective has been entered yet.",
+      selectProject: "Select project",
+      selectRun: "Select run",
+      model: "Model",
+      degradedMode: "degraded mode",
+      passed: "Passed",
+      failedShort: "Failed",
+      stage: "Stage",
+      attempts: "Attempts",
+      failureType: "Failure class",
+      prompt: "Prompt",
+      latestStageOutput: "Latest stage output"
+    },
+    sidebar: {
+      title: "Research Control Center",
+      description:
+        "A single-user self-hosted platform that keeps idea, proposal, experiment, analysis, and paper work in one durable loop.",
+      language: "Language",
+      languageHint: "Defaulting to English for public-facing workflows.",
+      liveStatus: "Live Status",
+      project: "Project",
+      run: "Run",
+      spentBudget: "Spent Budget",
+      noneSelected: "None selected",
+      noActiveRun: "No active run"
+    },
+    setup: {
+      step1: "Step 1",
+      step2: "Step 2",
+      step3: "Step 3",
+      inventoryEyebrow: "Inventory",
+      title: "Project Setup",
+      description: "Define research goals, default models, default compute targets, and budget limits.",
+      projectName: "Project name",
+      problemDescription: "Problem statement",
+      objective: "Research objective and success criteria",
+      primaryModel: "Primary execution model",
+      criticModel: "Critic model",
+      defaultCompute: "Default compute target",
+      createProject: "Create project",
+      modelTitle: "Model Profiles",
+      modelDescription: "Register Anthropic, OpenAI, OpenAI-compatible, or CLI-agent backends.",
+      profileName: "Profile name",
+      modelName: "Model name",
+      baseUrl: "Base URL",
+      apiKeyEnv: "API key environment variable",
+      cliCommand: "CLI command (optional)",
+      saveProfile: "Save profile",
+      testLatestProfile: "Test latest profile",
+      computeTitle: "Compute Targets",
+      computeDescription: "Local, Docker, and SSH GPU executors all share one orchestration contract.",
+      computeName: "Target name",
+      priority: "Priority",
+      saveCompute: "Save target",
+      inventoryTitle: "Configured Resources",
+      inventoryDescription:
+        "The control plane stays transparent. No hidden queues, hidden model profiles, or hidden compute targets.",
+      projects: "Projects",
+      modelProfiles: "Model Profiles",
+      computeTargets: "Compute Targets"
+    },
+    pipeline: {
+      eyebrow: "Launch",
+      title: "Live Pipeline Board",
+      description: "Create runs, receive streaming status updates, and inspect the durable stage state machine.",
+      runName: "Run name",
+      runPrompt: "Run prompt, brief addendum, or operator note",
+      startRun: "Start run",
+      stopRun: "Stop",
+      currentRun: "Current run",
+      noRunSelected: "No run selected",
+      eventsEyebrow: "Realtime",
+      eventsTitle: "Events and Logs",
+      eventsDescription: "The API and worker stream stage events and execution logs over WebSocket.",
+      events: "Events",
+      logs: "Logs",
+      budgetSnapshot: "Budget snapshot",
+      spentCost: "Spent cost",
+      tokenBudget: "Token budget",
+      refreshState: "Refresh state",
+      defaultRunPrefix: "Run"
+    },
+    chat: {
+      eyebrow: "Context",
+      title: "Research Chat",
+      description:
+        "Chat is a control surface, not a source of truth. Use it to steer the workflow instead of replacing run artifacts.",
+      placeholder:
+        "For example: update the research strategy, analyze gaps, suggest the next experiment batch, or refine the proposal.",
+      send: "Send to research copilot",
+      responseEyebrow: "Response",
+      responseTitle: "Model Reply",
+      responseDescription:
+        "When memory is available, replies use recent context. If no primary model is configured, the system falls back to a template mode."
+    },
+    artifacts: {
+      eyebrow: "Output",
+      title: "Artifacts",
+      description: "Artifact metadata is stored in the database, while source-of-truth files remain in each run directory.",
+      previewEyebrow: "Preview",
+      previewDescription:
+        "Long-form outputs are rendered directly in this panel so you can review proposals, plans, metrics, and paper drafts."
+    },
+    runs: {
+      eyebrow: "History",
+      title: "Runs and Metrics",
+      description: "Every run is reviewable, with stage state, cost, and latest metrics kept together.",
+      snapshotEyebrow: "Snapshot",
+      snapshotTitle: "Selected Run",
+      snapshotDescription: "Metrics and summaries come from durable run state plus artifact metadata.",
+      currentStage: "Current stage",
+      retries: "Retries",
+      cost: "Cost",
+      runId: "Run ID",
+      stageCursor: "Stage cursor",
+      tokens: "Tokens",
+      noSelection: "Select a run on the left to inspect its durable state."
+    }
+  },
+  zh: {
+    panes: {
+      setup: "项目设置",
+      pipeline: "实时流程看板",
+      chat: "研究对话",
+      artifacts: "成果产物",
+      runs: "运行与指标"
+    },
+    status: {
+      completed: "已完成",
+      running: "运行中",
+      queued: "排队中",
+      failed: "失败",
+      stopped: "已停止",
+      pending: "待执行",
+      active: "启用中"
+    },
+    stages: {
+      brief_intake: "研究简报录入",
+      literature_scan: "文献扫描",
+      idea_generation: "想法生成",
+      novelty_feasibility_ranking: "创新性与可行性排序",
+      proposal_drafting: "Proposal 起草",
+      experiment_planning: "实验规划",
+      code_generation: "代码生成",
+      experiment_run_refine_loop: "实验执行与修复循环",
+      analysis_result_to_claim: "结果分析与结论判断",
+      paper_drafting_review_export: "论文写作、审阅与导出"
+    },
+    failureClass: {
+      tooling: "工具问题",
+      code: "代码问题",
+      data: "数据问题",
+      resource: "资源问题",
+      reasoning: "推理问题",
+      citation: "引用问题",
+      infra: "基础设施问题"
+    },
+    eventType: {
+      "run.completed": "运行完成",
+      "stage.started": "阶段开始",
+      "stage.completed": "阶段完成",
+      "stage.failed": "阶段失败",
+      log: "日志",
+      "bus.degraded": "事件总线降级"
+    },
+    common: {
+      unknown: "未知",
+      idle: "空闲",
+      none: "无",
+      file: "文件",
+      noPrompt: "该运行创建时未填写显式操作提示词。",
+      noConfig: "还没有任何配置。",
+      noResponse: "暂无响应。",
+      noArtifact: "尚未选择产物。",
+      waitingEvents: "正在等待 WebSocket 事件流。",
+      syncing: "同步中...",
+      live: "实时",
+      objectiveMissing: "暂未填写研究目标。",
+      selectProject: "选择项目",
+      selectRun: "选择运行",
+      model: "模型",
+      degradedMode: "降级模式",
+      passed: "通过",
+      failedShort: "失败",
+      stage: "阶段",
+      attempts: "尝试次数",
+      failureType: "失败类型",
+      prompt: "提示词",
+      latestStageOutput: "最新阶段输出"
+    },
+    sidebar: {
+      title: "自动科研控制台",
+      description:
+        "面向单用户自托管的全流程自动科研平台，把 idea、proposal、experiment、analysis 和 paper 串成一条可持续运行的闭环。",
+      language: "语言",
+      languageHint: "默认优先英文展示，也可以随时切回中文。",
+      liveStatus: "实时状态",
+      project: "项目",
+      run: "运行",
+      spentBudget: "已用预算",
+      noneSelected: "未选择",
+      noActiveRun: "暂无活跃运行"
+    },
+    setup: {
+      step1: "步骤 1",
+      step2: "步骤 2",
+      step3: "步骤 3",
+      inventoryEyebrow: "资源总览",
+      title: "项目设置",
+      description: "定义研究目标、默认模型、默认算力目标与预算上限。",
+      projectName: "项目名称",
+      problemDescription: "问题描述",
+      objective: "研究目标与成功标准",
+      primaryModel: "主执行模型配置",
+      criticModel: "批判模型配置",
+      defaultCompute: "默认算力目标",
+      createProject: "创建项目",
+      modelTitle: "模型配置",
+      modelDescription: "登记 Anthropic、OpenAI、OpenAI-compatible 或 CLI-agent 后端。",
+      profileName: "配置名称",
+      modelName: "模型名",
+      baseUrl: "Base URL",
+      apiKeyEnv: "API Key 环境变量名",
+      cliCommand: "CLI 命令（可选）",
+      saveProfile: "保存配置",
+      testLatestProfile: "测试最近配置",
+      computeTitle: "算力目标",
+      computeDescription: "本机、Docker 和 SSH GPU 统一走同一套编排契约。",
+      computeName: "目标名称",
+      priority: "优先级",
+      saveCompute: "保存目标",
+      inventoryTitle: "已配置资源",
+      inventoryDescription: "控制面保持透明，没有隐藏队列、隐藏模型配置或隐藏算力目标。",
+      projects: "项目",
+      modelProfiles: "模型配置",
+      computeTargets: "算力目标"
+    },
+    pipeline: {
+      eyebrow: "启动",
+      title: "实时流程看板",
+      description: "创建运行、接收状态流式更新，并查看持久化阶段状态机。",
+      runName: "运行名称",
+      runPrompt: "运行提示词、简报补充或操作备注",
+      startRun: "启动运行",
+      stopRun: "停止",
+      currentRun: "当前运行",
+      noRunSelected: "未选择运行",
+      eventsEyebrow: "实时",
+      eventsTitle: "事件与日志",
+      eventsDescription: "API 与 worker 通过 WebSocket 推送阶段事件和执行日志。",
+      events: "事件",
+      logs: "日志",
+      budgetSnapshot: "预算快照",
+      spentCost: "已用成本",
+      tokenBudget: "Token 预算",
+      refreshState: "刷新状态",
+      defaultRunPrefix: "运行"
+    },
+    chat: {
+      eyebrow: "上下文",
+      title: "研究对话",
+      description: "聊天窗口是控制面，不是事实来源。它用于引导流程，而不是替代 run 产物。",
+      placeholder: "例如：更新研究策略、分析缺口、建议下一组实验，或细化 proposal。",
+      send: "发送给研究副驾",
+      responseEyebrow: "回复",
+      responseTitle: "模型响应",
+      responseDescription: "有可用记忆时会基于近期上下文回答；若未配置主模型，则回退到模板模式。"
+    },
+    artifacts: {
+      eyebrow: "输出",
+      title: "成果产物",
+      description: "产物元数据保存在数据库里，但事实文件仍保存在对应 run 目录中。",
+      previewEyebrow: "预览",
+      previewDescription: "长文本会在面板内直接展示，方便你审阅 proposal、plan、metrics 和 paper 输出。"
+    },
+    runs: {
+      eyebrow: "历史",
+      title: "运行与指标",
+      description: "每一次运行都可回看，阶段状态、成本和最新指标都会集中展示。",
+      snapshotEyebrow: "快照",
+      snapshotTitle: "当前选中运行",
+      snapshotDescription: "指标与阶段摘要都来自持久化 run 状态和产物元数据。",
+      currentStage: "当前阶段",
+      retries: "重试次数",
+      cost: "成本",
+      runId: "运行 ID",
+      stageCursor: "阶段游标",
+      tokens: "Tokens",
+      noSelection: "请先在左侧选择一个运行，再查看它的持久化状态。"
+    }
+  }
+} as const;
