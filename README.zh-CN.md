@@ -1,5 +1,9 @@
 # Auto-Researcher
 
+[![CI](https://github.com/Haoqin860/auto-researcher/actions/workflows/ci.yml/badge.svg)](https://github.com/Haoqin860/auto-researcher/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/Haoqin860/auto-researcher)](./LICENSE)
+[![Discussions](https://img.shields.io/github/discussions/Haoqin860/auto-researcher)](https://github.com/Haoqin860/auto-researcher/discussions)
+
 中文 | [English](./README.md)
 
 Auto-Researcher 是一个面向单用户、自托管场景的 ML/AI 自动科研平台，目标是把研究任务从研究简报、文献调研、idea 生成、proposal、实验规划与执行，一直到结果分析和论文草稿，串成一条可持续运行的自动化流程。
@@ -17,6 +21,14 @@ Auto-Researcher 是一个面向单用户、自托管场景的 ML/AI 自动科研
 - 提供 Web 控制台，包含项目设置、实时流程看板、研究对话、成果产物、运行指标
 - 以 artifact 为核心，所有关键输出写入 `artifacts/<project_id>/<run_id>/...`
 - 在 proposal、analysis、paper 阶段内置引用校验链路
+
+## 前端预览
+
+仓库内已经包含中文友好的前端控制台。下面的截图来自真实本地自托管运行页面，并会直接展示在 GitHub 仓库首页。
+
+![Auto-Researcher 控制台总览](./docs/images/dashboard-overview.png)
+
+![Auto-Researcher 实时流程看板](./docs/images/dashboard-pipeline.png)
 
 ## 架构概览
 
@@ -177,7 +189,14 @@ Auto-Researcher v1 当前聚焦于：
 - [数据契约](./docs/data-contracts.md)
 - [运行手册](./docs/runbook.md)
 - [贡献指南](./CONTRIBUTING.md)
+- [支持说明](./SUPPORT.md)
+- [安全策略](./SECURITY.md)
+- [行为准则](./CODE_OF_CONDUCT.md)
 - [发布检查清单](./docs/release-checklist.md)
+
+## 引用
+
+如果你准备在论文或项目中引用本系统，可以直接使用仓库中的 [`CITATION.cff`](./CITATION.cff)。
 
 ## 许可证
 

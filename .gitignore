@@ -23,6 +23,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.playwright-cli/
 node_modules/
 .next/
 dist/

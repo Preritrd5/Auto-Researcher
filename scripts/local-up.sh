@@ -56,21 +56,16 @@ start_service() {
   local pid_file="$3"
   local log_file="$4"
   local command="$5"
-  local launch_prefix=""
 
   if is_running "$pid_file"; then
     echo "$name is already running (pid $(cat "$pid_file"))."
     return 0
   fi
 
-  if command -v setsid >/dev/null 2>&1; then
-    launch_prefix="setsid"
-  fi
-
   rm -f "$pid_file"
   (
     cd "$workdir"
-    nohup $launch_prefix bash -lc "$command" >"$log_file" 2>&1 < /dev/null &
+    nohup bash -lc "exec $command" >"$log_file" 2>&1 < /dev/null &
     echo $! >"$pid_file"
   )
   echo "Started $name (pid $(cat "$pid_file"))."

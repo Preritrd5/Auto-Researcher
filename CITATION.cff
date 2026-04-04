@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use Auto-Researcher in academic work, please cite this software."
+title: "Auto-Researcher"
+type: software
+version: "0.1.0"
+date-released: 2026-04-04
+license: MIT
+abstract: "Single-user self-hosted ML/AI research automation platform with durable orchestration, multi-provider model routing, experiment execution, artifact tracking, and a web control plane."
+authors:
+  - family-names: Qin
+    given-names: Hao
+repository-code: "https://github.com/Haoqin860/auto-researcher"
+url: "https://github.com/Haoqin860/auto-researcher"
+keywords:
+  - research automation
+  - ai agents
+  - machine learning
+  - llm orchestration
+  - self-hosted
+

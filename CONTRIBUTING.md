@@ -8,6 +8,7 @@ This project is intended to be a practical, self-hosted research automation plat
 
 - Read the main [README](./README.md) first
 - Check the existing docs under [`docs/`](./docs)
+- Review [SUPPORT.md](./SUPPORT.md), [SECURITY.md](./SECURITY.md), and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 - Open an issue before starting large or architectural changes
 
 For small bug fixes and documentation improvements, feel free to open a pull request directly.

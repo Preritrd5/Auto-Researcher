@@ -1,5 +1,9 @@
 # Auto-Researcher
 
+[![CI](https://github.com/Haoqin860/auto-researcher/actions/workflows/ci.yml/badge.svg)](https://github.com/Haoqin860/auto-researcher/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/Haoqin860/auto-researcher)](./LICENSE)
+[![Discussions](https://img.shields.io/github/discussions/Haoqin860/auto-researcher)](https://github.com/Haoqin860/auto-researcher/discussions)
+
 [中文说明](./README.zh-CN.md) | English
 
 Auto-Researcher is a single-user, self-hosted ML/AI research platform that automates the full workflow from research brief to proposal, experiment planning, execution, analysis, and paper drafting.
@@ -17,6 +21,14 @@ It combines a durable orchestration backend, pluggable model providers, reproduc
 - Web dashboard with project setup, live pipeline board, chat, artifacts, and run metrics
 - Artifact-first design with auditable outputs written to `artifacts/<project_id>/<run_id>/...`
 - Citation verification workflow for proposal, analysis, and paper stages
+
+## Frontend Preview
+
+The repository includes a Chinese-friendly operator dashboard out of the box. The screenshots below were captured from a real local self-hosted run with demo data.
+
+![Auto-Researcher dashboard overview](./docs/images/dashboard-overview.png)
+
+![Auto-Researcher live pipeline board](./docs/images/dashboard-pipeline.png)
 
 ## Architecture
 
@@ -161,7 +173,14 @@ Not included in v1:
 - [Data Contracts](./docs/data-contracts.md)
 - [Operator Runbook](./docs/runbook.md)
 - [Contributing Guide](./CONTRIBUTING.md)
+- [Support Guide](./SUPPORT.md)
+- [Security Policy](./SECURITY.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
 - [Release Checklist](./docs/release-checklist.md)
+
+## Citation
+
+Citation metadata is provided in [`CITATION.cff`](./CITATION.cff).
 
 ## License
 
