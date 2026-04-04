@@ -1,0 +1,73 @@
+name: Bug report
+description: Report a reproducible bug in the platform
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please include enough detail for someone else to reproduce it.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: One-sentence description of the problem
+      placeholder: The worker stops after the experiment stage when Redis is unavailable
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Describe the environment where the issue happened
+      placeholder: |
+        OS:
+        Python version:
+        Node version:
+        Deployment mode: Docker Compose / local scripts
+        Model provider(s):
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide a minimal sequence of steps
+      placeholder: |
+        1. Create a project
+        2. Add an OpenAI-compatible profile
+        3. Launch a run
+        4. Observe the failure at stage 8
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or screenshots
+      description: Paste the smallest useful snippet. Remove secrets before submitting.
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Anything else that may help diagnose the issue
