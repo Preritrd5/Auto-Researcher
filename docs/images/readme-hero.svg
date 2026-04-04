@@ -7,11 +7,11 @@
       <stop offset="0.55" stop-color="#F1E8DA"/>
       <stop offset="1" stop-color="#E6D9C7"/>
     </linearGradient>
-    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(178 120) rotate(24.91) scale(366.749 252.389)">
-      <stop stop-color="#0F6D57" stop-opacity="0.23"/>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(194 122) rotate(25) scale(390 260)">
+      <stop stop-color="#0F6D57" stop-opacity="0.22"/>
       <stop offset="1" stop-color="#0F6D57" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1096 148) rotate(157.011) scale(323.051 228.03)">
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1088 142) rotate(158) scale(326 232)">
       <stop stop-color="#B06A18" stop-opacity="0.18"/>
       <stop offset="1" stop-color="#B06A18" stop-opacity="0"/>
     </radialGradient>
@@ -35,7 +35,7 @@
   <rect width="1280" height="720" rx="36" fill="url(#glowA)"/>
   <rect width="1280" height="720" rx="36" fill="url(#glowB)"/>
 
-  <g opacity="0.38">
+  <g opacity="0.34">
     <path d="M0 91H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
     <path d="M0 181H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
     <path d="M0 271H1280" stroke="#0F6D57" stroke-opacity="0.08"/>
@@ -54,110 +54,116 @@
   </g>
 
   <g filter="url(#soft)">
-    <rect x="54" y="54" width="1172" height="612" rx="32" fill="#FFFCF7" fill-opacity="0.52"/>
-    <rect x="54.75" y="54.75" width="1170.5" height="610.5" rx="31.25" stroke="#FFF8EF" stroke-opacity="0.5" stroke-width="1.5"/>
+    <rect x="54" y="54" width="1172" height="612" rx="32" fill="#FFFCF7" fill-opacity="0.54"/>
+    <rect x="54.75" y="54.75" width="1170.5" height="610.5" rx="31.25" stroke="#FFF8EF" stroke-opacity="0.55" stroke-width="1.5"/>
   </g>
 
   <g>
-    <rect x="92" y="104" width="114" height="30" rx="15" fill="#E7F4EF"/>
-    <text x="149" y="124" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.24em">AUTO-RESEARCHER</text>
+    <rect x="92" y="104" width="178" height="30" rx="15" fill="#E7F4EF"/>
+    <text x="181" y="124" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#0F6D57" letter-spacing="0.22em">AUTO-RESEARCHER</text>
 
-    <text x="92" y="236" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#172723">From idea to paper,</text>
-    <text x="92" y="304" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#172723">with a durable research loop.</text>
+    <text x="92" y="214" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#172723">From idea</text>
+    <text x="92" y="288" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#172723">to paper, with</text>
+    <text x="92" y="362" font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700" fill="#172723">a durable loop.</text>
 
-    <text x="92" y="362" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#485B54">Self-hosted ML and AI research orchestration with a realtime dashboard,</text>
-    <text x="92" y="396" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#485B54">multi-model routing, repair loops, artifacts, and bilingual operator UX.</text>
+    <text x="92" y="430" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#485B54">Self-hosted ML and AI orchestration with durable runs,</text>
+    <text x="92" y="464" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500" fill="#485B54">repair loops, verified artifacts, and bilingual ops.</text>
   </g>
 
   <g>
-    <rect x="92" y="446" width="144" height="38" rx="19" fill="#0F6D57"/>
-    <text x="164" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">FastAPI + Worker</text>
+    <rect x="92" y="500" width="166" height="40" rx="20" fill="#0F6D57"/>
+    <text x="175" y="525" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">FastAPI backend</text>
 
-    <rect x="248" y="446" width="120" height="38" rx="19" fill="#F5ECDF"/>
-    <text x="308" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Next.js UI</text>
+    <rect x="274" y="500" width="178" height="40" rx="20" fill="#F5ECDF"/>
+    <text x="363" y="525" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Next.js dashboard</text>
 
-    <rect x="380" y="446" width="128" height="38" rx="19" fill="#F5ECDF"/>
-    <text x="444" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Claude / GPT / Qwen</text>
+    <rect x="92" y="552" width="196" height="40" rx="20" fill="#F5ECDF"/>
+    <text x="190" y="577" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Claude / GPT / Qwen</text>
 
-    <rect x="520" y="446" width="118" height="38" rx="19" fill="#F5ECDF"/>
-    <text x="579" y="470" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Local / Docker / SSH</text>
+    <rect x="304" y="552" width="190" height="40" rx="20" fill="#F5ECDF"/>
+    <text x="399" y="577" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#435651">Local / Docker / SSH</text>
   </g>
 
   <g>
-    <rect x="92" y="538" width="562" height="78" rx="26" fill="#FFF7EB"/>
-    <rect x="92.75" y="538.75" width="560.5" height="76.5" rx="25.25" stroke="#E8DAC3" stroke-width="1.5"/>
-    <text x="120" y="568" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#B06A18" letter-spacing="0.2em">PIPELINE</text>
-    <text x="120" y="596" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="600" fill="#172723">Brief -> Literature -> Ideas -> Proposal -> Experiments -> Analysis -> Paper</text>
+    <text x="92" y="596" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.18em">PIPELINE</text>
+
+    <rect x="92" y="606" width="620" height="46" rx="23" fill="#FFF7EB"/>
+    <rect x="92.75" y="606.75" width="618.5" height="44.5" rx="22.25" stroke="#E8DAC3" stroke-width="1.5"/>
+
+    <rect x="112" y="616" width="72" height="26" rx="13" fill="#FFFFFF"/>
+    <text x="148" y="633" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#435651">Brief</text>
+    <text x="194" y="632" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#B06A18">-&gt;</text>
+
+    <rect x="214" y="616" width="90" height="26" rx="13" fill="#FFFFFF"/>
+    <text x="259" y="633" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#435651">Ideas</text>
+    <text x="314" y="632" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#B06A18">-&gt;</text>
+
+    <rect x="334" y="616" width="96" height="26" rx="13" fill="#FFFFFF"/>
+    <text x="382" y="633" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#435651">Proposal</text>
+    <text x="440" y="632" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#B06A18">-&gt;</text>
+
+    <rect x="460" y="616" width="122" height="26" rx="13" fill="#FFFFFF"/>
+    <text x="521" y="633" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#435651">Experiment</text>
+    <text x="592" y="632" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#B06A18">-&gt;</text>
+
+    <rect x="612" y="616" width="78" height="26" rx="13" fill="#FFFFFF"/>
+    <text x="651" y="633" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#435651">Paper</text>
   </g>
 
   <g filter="url(#shadow)">
-    <rect x="738" y="86" width="440" height="548" rx="30" fill="url(#panel)"/>
-    <rect x="738.75" y="86.75" width="438.5" height="546.5" rx="29.25" stroke="#EADCC7" stroke-width="1.5"/>
+    <rect x="746" y="86" width="432" height="548" rx="30" fill="url(#panel)"/>
+    <rect x="746.75" y="86.75" width="430.5" height="546.5" rx="29.25" stroke="#EADCC7" stroke-width="1.5"/>
 
-    <rect x="770" y="114" width="376" height="84" rx="24" fill="#FFFCF8"/>
-    <text x="800" y="142" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.18em">CONTROL CENTER</text>
-    <text x="800" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#172723">Bilingual dashboard</text>
-    <text x="800" y="190" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#5D7068">English by default, Chinese one tap away.</text>
+    <rect x="778" y="114" width="368" height="94" rx="26" fill="#FFFCF8"/>
+    <text x="804" y="144" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.18em">CONTROL CENTER</text>
+    <text x="804" y="176" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" fill="#172723">Bilingual dashboard</text>
+    <text x="804" y="198" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#5D7068">English first, Chinese one tap away.</text>
 
-    <rect x="1020" y="132" width="50" height="28" rx="14" fill="#0F6D57"/>
-    <text x="1045" y="150" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">EN</text>
-    <rect x="1078" y="132" width="58" height="28" rx="14" fill="#EFE6D8"/>
-    <text x="1107" y="150" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#51625C">中文</text>
+    <rect x="1042" y="132" width="48" height="28" rx="14" fill="#0F6D57"/>
+    <text x="1066" y="150" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">EN</text>
+    <rect x="1098" y="132" width="48" height="28" rx="14" fill="#EFE6D8"/>
+    <text x="1122" y="150" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#51625C">中文</text>
 
-    <rect x="770" y="222" width="170" height="370" rx="24" fill="#FFFDF9"/>
-    <text x="796" y="252" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.18em">NAVIGATION</text>
+    <rect x="778" y="226" width="150" height="340" rx="24" fill="#FFFDF9"/>
+    <text x="804" y="256" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.18em">NAVIGATION</text>
 
-    <rect x="786" y="272" width="138" height="48" rx="18" fill="url(#accent)"/>
-    <text x="855" y="302" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Live Pipeline</text>
+    <rect x="794" y="278" width="118" height="44" rx="18" fill="url(#accent)"/>
+    <text x="853" y="306" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Live Pipeline</text>
 
-    <rect x="786" y="332" width="138" height="48" rx="18" fill="#F4ECE0"/>
-    <text x="855" y="362" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Artifacts</text>
+    <rect x="794" y="334" width="118" height="44" rx="18" fill="#F4ECE0"/>
+    <text x="853" y="362" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Artifacts</text>
 
-    <rect x="786" y="392" width="138" height="48" rx="18" fill="#F4ECE0"/>
-    <text x="855" y="422" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Runs &amp; Metrics</text>
+    <rect x="794" y="390" width="118" height="44" rx="18" fill="#F4ECE0"/>
+    <text x="853" y="418" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Runs</text>
 
-    <rect x="786" y="452" width="138" height="48" rx="18" fill="#F4ECE0"/>
-    <text x="855" y="482" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Research Chat</text>
+    <rect x="794" y="446" width="118" height="44" rx="18" fill="#F4ECE0"/>
+    <text x="853" y="474" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#445751">Chat</text>
 
-    <rect x="786" y="518" width="138" height="56" rx="18" fill="#FBF5EA"/>
-    <text x="804" y="540" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#0F6D57" letter-spacing="0.16em">BUDGET</text>
-    <text x="804" y="566" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#172723">$0.00</text>
+    <rect x="794" y="510" width="118" height="40" rx="18" fill="#FBF5EA"/>
+    <text x="810" y="535" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#0F6D57" letter-spacing="0.16em">BUDGET</text>
+    <text x="910" y="535" text-anchor="end" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#172723">$0.42</text>
 
-    <rect x="960" y="222" width="186" height="370" rx="24" fill="#FFFDF9"/>
-    <text x="986" y="252" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.18em">PIPELINE STATUS</text>
+    <rect x="944" y="226" width="202" height="340" rx="24" fill="#FFFDF9"/>
+    <text x="970" y="256" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.18em">ACTIVE RUN</text>
 
-    <g>
-      <rect x="982" y="274" width="142" height="28" rx="14" fill="#E3F5EC"/>
-      <text x="1053" y="293" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#21744D">Completed</text>
-    </g>
+    <rect x="960" y="278" width="170" height="94" rx="22" fill="#E7F4EF"/>
+    <text x="982" y="304" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#0F6D57" letter-spacing="0.16em">STAGE 8</text>
+    <text x="982" y="332" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" fill="#172723">Run + repair</text>
+    <text x="982" y="352" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="500" fill="#50635B">Retry and auto-fix loop is active.</text>
 
-    <g>
-      <rect x="982" y="324" width="142" height="42" rx="16" fill="#F7F1E8"/>
-      <text x="1000" y="342" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#B06A18" letter-spacing="0.16em">STAGE 1</text>
-      <text x="1000" y="356" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Brief intake</text>
-    </g>
+    <rect x="960" y="386" width="170" height="10" rx="5" fill="#EDE5D8"/>
+    <rect x="960" y="386" width="112" height="10" rx="5" fill="#0F6D57"/>
 
-    <g>
-      <rect x="982" y="376" width="142" height="42" rx="16" fill="#F7F1E8"/>
-      <text x="1000" y="394" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#B06A18" letter-spacing="0.16em">STAGE 4</text>
-      <text x="1000" y="408" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Idea ranking</text>
-    </g>
+    <rect x="960" y="414" width="170" height="50" rx="18" fill="#F7F1E8"/>
+    <text x="982" y="435" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#B06A18" letter-spacing="0.16em">ARTIFACTS</text>
+    <text x="982" y="452" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#172723">24 files synced</text>
 
-    <g>
-      <rect x="982" y="428" width="142" height="42" rx="16" fill="#E7F4EF"/>
-      <text x="1000" y="446" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#0F6D57" letter-spacing="0.16em">STAGE 8</text>
-      <text x="1000" y="460" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Run + repair loop</text>
-    </g>
+    <rect x="960" y="476" width="170" height="50" rx="18" fill="#F7F1E8"/>
+    <text x="982" y="497" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#B06A18" letter-spacing="0.16em">METRICS</text>
+    <text x="982" y="514" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#172723">3 live streams</text>
 
-    <g>
-      <rect x="982" y="480" width="142" height="42" rx="16" fill="#F7F1E8"/>
-      <text x="1000" y="498" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#B06A18" letter-spacing="0.16em">STAGE 10</text>
-      <text x="1000" y="512" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#172723">Paper export</text>
-    </g>
-
-    <g>
-      <rect x="960" y="548" width="186" height="44" rx="18" fill="#172723"/>
-      <text x="1053" y="576" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Realtime artifacts and metrics</text>
-    </g>
+    <rect x="960" y="538" width="170" height="50" rx="18" fill="#172723"/>
+    <text x="1045" y="560" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#B9D8CF" letter-spacing="0.16em">LOGS</text>
+    <text x="1045" y="578" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Live logs streaming</text>
   </g>
 </svg>

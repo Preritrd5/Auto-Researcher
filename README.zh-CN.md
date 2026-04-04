@@ -23,7 +23,15 @@ Auto-Researcher 是一个面向单用户、自托管场景的 ML/AI 自动科研
 
 ![Auto-Researcher 英文项目设置界面](./docs/images/dashboard-setup-en.png)
 
+![Auto-Researcher 中文项目设置界面](./docs/images/dashboard-setup-zh.png)
+
 ![Auto-Researcher 中文流程看板界面](./docs/images/dashboard-pipeline-zh.png)
+
+![Auto-Researcher 中文研究对话界面](./docs/images/dashboard-chat-zh.png)
+
+![Auto-Researcher 中文成果产物界面](./docs/images/dashboard-artifacts-zh.png)
+
+![Auto-Researcher 中文运行与指标界面](./docs/images/dashboard-runs-zh.png)
 </details>
 
 ## 架构概览

@@ -1,8 +1,8 @@
-<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="1280" height="820" viewBox="0 0 1280 820" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Auto-Researcher Architecture Overview</title>
   <desc id="desc">System architecture diagram showing the frontend, API, worker, databases, providers, compute targets, and artifact store for Auto-Researcher.</desc>
   <defs>
-    <linearGradient id="bg" x1="84" y1="52" x2="1192" y2="708" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="84" y1="52" x2="1192" y2="768" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8F3EA"/>
       <stop offset="1" stop-color="#EDE0CD"/>
     </linearGradient>
@@ -14,7 +14,7 @@
       <stop stop-color="#B06A18"/>
       <stop offset="1" stop-color="#D1892E"/>
     </linearGradient>
-    <filter id="shadow" x="-40" y="-40" width="1360" height="840" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="shadow" x="-40" y="-40" width="1360" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#2F3936" flood-opacity="0.12"/>
     </filter>
     <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
@@ -22,7 +22,7 @@
     </marker>
   </defs>
 
-  <rect width="1280" height="760" rx="36" fill="url(#bg)"/>
+  <rect width="1280" height="820" rx="36" fill="url(#bg)"/>
 
   <g opacity="0.34">
     <path d="M0 110H1280" stroke="#0F6D57" stroke-opacity="0.06"/>
@@ -31,100 +31,102 @@
     <path d="M0 440H1280" stroke="#0F6D57" stroke-opacity="0.06"/>
     <path d="M0 550H1280" stroke="#0F6D57" stroke-opacity="0.06"/>
     <path d="M0 660H1280" stroke="#0F6D57" stroke-opacity="0.06"/>
-    <path d="M180 0V760" stroke="#0F6D57" stroke-opacity="0.06"/>
-    <path d="M360 0V760" stroke="#0F6D57" stroke-opacity="0.06"/>
-    <path d="M540 0V760" stroke="#0F6D57" stroke-opacity="0.06"/>
-    <path d="M720 0V760" stroke="#0F6D57" stroke-opacity="0.06"/>
-    <path d="M900 0V760" stroke="#0F6D57" stroke-opacity="0.06"/>
-    <path d="M1080 0V760" stroke="#0F6D57" stroke-opacity="0.06"/>
+    <path d="M0 770H1280" stroke="#0F6D57" stroke-opacity="0.06"/>
+    <path d="M180 0V820" stroke="#0F6D57" stroke-opacity="0.06"/>
+    <path d="M360 0V820" stroke="#0F6D57" stroke-opacity="0.06"/>
+    <path d="M540 0V820" stroke="#0F6D57" stroke-opacity="0.06"/>
+    <path d="M720 0V820" stroke="#0F6D57" stroke-opacity="0.06"/>
+    <path d="M900 0V820" stroke="#0F6D57" stroke-opacity="0.06"/>
+    <path d="M1080 0V820" stroke="#0F6D57" stroke-opacity="0.06"/>
   </g>
 
-  <text x="84" y="92" font-family="'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0F6D57" letter-spacing="0.24em">ARCHITECTURE</text>
-  <text x="84" y="138" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="700" fill="#172723">How Auto-Researcher stays durable end to end</text>
-  <text x="84" y="176" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="500" fill="#55675F">Frontend, API, worker, providers, runtime backends, durable state, and artifacts all have explicit boundaries.</text>
+  <text x="84" y="88" font-family="'SF Pro Display', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="700" fill="#0F6D57" letter-spacing="0.24em">ARCHITECTURE</text>
+  <text x="84" y="144" font-family="Georgia, 'Times New Roman', serif" font-size="50" font-weight="700" fill="#172723">How Auto-Researcher</text>
+  <text x="84" y="198" font-family="Georgia, 'Times New Roman', serif" font-size="50" font-weight="700" fill="#172723">stays durable end to end</text>
+  <text x="84" y="238" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="500" fill="#55675F">Clear boundaries between UI, orchestration, durable state,</text>
+  <text x="84" y="266" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="500" fill="#55675F">and execution runtime keep long research runs recoverable.</text>
 
   <g filter="url(#shadow)">
-    <rect x="84" y="220" width="346" height="448" rx="28" fill="#FFF9F1"/>
-    <rect x="84.75" y="220.75" width="344.5" height="446.5" rx="27.25" stroke="#E8DAC4" stroke-width="1.5"/>
-    <rect x="108" y="244" width="300" height="46" rx="18" fill="#E7F4EF"/>
-    <text x="126" y="272" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.18em">CONTROL PLANE</text>
+    <rect x="84" y="286" width="320" height="252" rx="28" fill="#FFF9F1"/>
+    <rect x="84.75" y="286.75" width="318.5" height="250.5" rx="27.25" stroke="#E8DAC4" stroke-width="1.5"/>
+    <rect x="108" y="310" width="272" height="44" rx="18" fill="#E7F4EF"/>
+    <text x="126" y="338" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.18em">CONTROL PLANE</text>
 
-    <rect x="108" y="318" width="300" height="112" rx="22" fill="url(#control)"/>
-    <text x="136" y="352" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#DDF3EA" letter-spacing="0.16em">FRONTEND</text>
-    <text x="136" y="384" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#FFFFFF">Next.js Dashboard</text>
-    <text x="136" y="410" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#EAF7F2">Project setup, bilingual UI, chat,</text>
-    <text x="136" y="432" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#EAF7F2">pipeline board, artifacts, and runs.</text>
+    <rect x="108" y="378" width="272" height="104" rx="22" fill="url(#control)"/>
+    <text x="132" y="408" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#DDF3EA" letter-spacing="0.16em">FRONTEND</text>
+    <text x="132" y="438" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="700" fill="#FFFFFF">Next.js dashboard</text>
+    <text x="132" y="458" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#EAF7F2">Setup, pipeline board, artifacts,</text>
+    <text x="132" y="476" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#EAF7F2">chat, and runs.</text>
 
-    <rect x="108" y="454" width="300" height="176" rx="22" fill="#F8F1E6"/>
-    <text x="136" y="488" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#B06A18" letter-spacing="0.16em">FASTAPI API</text>
-    <text x="136" y="518" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#172723">REST + WebSockets</text>
-    <text x="136" y="548" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#4F625B">Projects, runs, artifacts, compute targets,</text>
-    <text x="136" y="570" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#4F625B">provider testing, and realtime event streams.</text>
-    <rect x="136" y="594" width="114" height="24" rx="12" fill="#FFF9F1"/>
-    <text x="193" y="610" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#51625C">/api + /ws</text>
-  </g>
-
-  <g filter="url(#shadow)">
-    <rect x="466" y="220" width="356" height="448" rx="28" fill="#FFF9F1"/>
-    <rect x="466.75" y="220.75" width="354.5" height="446.5" rx="27.25" stroke="#E8DAC4" stroke-width="1.5"/>
-    <rect x="490" y="244" width="310" height="46" rx="18" fill="#E7F4EF"/>
-    <text x="508" y="272" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.18em">ORCHESTRATION CORE</text>
-
-    <rect x="490" y="318" width="310" height="138" rx="22" fill="url(#control)"/>
-    <text x="518" y="352" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#DDF3EA" letter-spacing="0.16em">BACKEND WORKER</text>
-    <text x="518" y="384" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#FFFFFF">Durable state machine</text>
-    <text x="518" y="412" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#EAF7F2">Run, stage, and task leases, retries,</text>
-    <text x="518" y="434" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#EAF7F2">heartbeats, checkpoints, and recovery.</text>
-
-    <rect x="490" y="478" width="147" height="152" rx="20" fill="#F8F1E6"/>
-    <text x="514" y="508" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.16em">PROVIDERS</text>
-    <text x="514" y="538" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#172723">Gateway</text>
-    <text x="514" y="566" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#4F625B">Anthropic</text>
-    <text x="514" y="588" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#4F625B">OpenAI</text>
-    <text x="514" y="610" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#4F625B">OpenAI-compatible</text>
-
-    <rect x="653" y="478" width="147" height="152" rx="20" fill="#F8F1E6"/>
-    <text x="677" y="508" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.16em">RETRIEVAL</text>
-    <text x="677" y="538" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#172723">Evidence hub</text>
-    <text x="677" y="566" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#4F625B">Literature scan</text>
-    <text x="677" y="588" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#4F625B">Citation verification</text>
-    <text x="677" y="610" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#4F625B">Claim evidence</text>
+    <rect x="108" y="496" width="272" height="32" rx="16" fill="#F8F1E6"/>
+    <text x="128" y="517" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.16em">API</text>
+    <text x="364" y="517" text-anchor="end" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#172723">FastAPI + WebSockets</text>
   </g>
 
   <g filter="url(#shadow)">
-    <rect x="858" y="220" width="338" height="448" rx="28" fill="#FFF9F1"/>
-    <rect x="858.75" y="220.75" width="336.5" height="446.5" rx="27.25" stroke="#E8DAC4" stroke-width="1.5"/>
-    <rect x="882" y="244" width="292" height="46" rx="18" fill="#F6E6D4"/>
-    <text x="900" y="272" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#B06A18" letter-spacing="0.18em">STATE + EXECUTION</text>
+    <rect x="480" y="286" width="320" height="252" rx="28" fill="#FFF9F1"/>
+    <rect x="480.75" y="286.75" width="318.5" height="250.5" rx="27.25" stroke="#E8DAC4" stroke-width="1.5"/>
+    <rect x="504" y="310" width="272" height="44" rx="18" fill="#E7F4EF"/>
+    <text x="522" y="338" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#0F6D57" letter-spacing="0.18em">ORCHESTRATION CORE</text>
 
-    <rect x="882" y="318" width="292" height="114" rx="22" fill="#FFFDF8"/>
-    <text x="908" y="348" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.16em">POSTGRES + REDIS</text>
-    <text x="908" y="378" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#172723">Durable state and realtime bus</text>
-    <text x="908" y="404" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#4F625B">Runs, stages, tasks, events, memories,</text>
-    <text x="908" y="426" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="500" fill="#4F625B">budgets, plus live event and log fanout.</text>
+    <rect x="504" y="378" width="272" height="104" rx="22" fill="url(#control)"/>
+    <text x="528" y="408" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#DDF3EA" letter-spacing="0.16em">WORKER</text>
+    <text x="528" y="438" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" fill="#FFFFFF">Durable worker loop</text>
+    <text x="528" y="458" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#EAF7F2">Leases, retries, heartbeats,</text>
+    <text x="528" y="476" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="500" fill="#EAF7F2">checkpoints, and recovery.</text>
 
-    <rect x="882" y="456" width="136" height="174" rx="20" fill="url(#execution)"/>
-    <text x="908" y="488" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#FFF7EA" letter-spacing="0.16em">RUNTIME</text>
-    <text x="908" y="520" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" fill="#FFFFFF">Local / Docker / SSH</text>
-    <text x="908" y="548" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#FFF4E6">Reproducible commands, logs, metrics, and repair loops.</text>
+    <rect x="504" y="496" width="128" height="24" rx="12" fill="#F8F1E6"/>
+    <text x="568" y="512" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#51625C">Provider gateway</text>
 
-    <rect x="1034" y="456" width="140" height="174" rx="20" fill="#F8F1E6"/>
-    <text x="1058" y="488" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.16em">ARTIFACTS</text>
-    <text x="1058" y="520" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700" fill="#172723">File truth</text>
-    <text x="1058" y="548" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="15" font-weight="500" fill="#4F625B">brief.md, proposal.md, plan.yaml, metrics.json, analysis, paper/</text>
+    <rect x="648" y="496" width="128" height="24" rx="12" fill="#F8F1E6"/>
+    <text x="712" y="512" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#51625C">Citation + retrieval</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="876" y="286" width="320" height="252" rx="28" fill="#FFF9F1"/>
+    <rect x="876.75" y="286.75" width="318.5" height="250.5" rx="27.25" stroke="#E8DAC4" stroke-width="1.5"/>
+    <rect x="900" y="310" width="272" height="44" rx="18" fill="#F6E6D4"/>
+    <text x="918" y="338" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#B06A18" letter-spacing="0.18em">DURABLE STATE</text>
+
+    <rect x="900" y="378" width="272" height="64" rx="22" fill="#FFFDF8"/>
+    <text x="924" y="404" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.16em">POSTGRES + REDIS</text>
+    <text x="924" y="422" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#172723">Runs, stages, tasks, events,</text>
+    <text x="924" y="442" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#172723">memories, and budgets.</text>
+
+    <rect x="900" y="454" width="272" height="62" rx="22" fill="#F8F1E6"/>
+    <text x="924" y="480" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#B06A18" letter-spacing="0.16em">REALTIME FANOUT</text>
+    <text x="924" y="502" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#172723">WebSocket events, logs, and artifact updates.</text>
   </g>
 
   <g stroke="#55675F" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow)">
-    <path d="M430 374H466"/>
-    <path d="M822 374H882"/>
-    <path d="M630 456V478"/>
-    <path d="M726 456V478"/>
-    <path d="M1028 432V456"/>
-    <path d="M1098 432V456"/>
+    <path d="M404 412H480"/>
+    <path d="M800 412H876"/>
+    <path d="M640 538V570"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="84" y="570" width="1112" height="152" rx="30" fill="#FFF9F1"/>
+    <rect x="84.75" y="570.75" width="1110.5" height="150.5" rx="29.25" stroke="#E8DAC4" stroke-width="1.5"/>
+
+    <rect x="110" y="596" width="224" height="44" rx="18" fill="#F6E6D4"/>
+    <text x="128" y="624" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#B06A18" letter-spacing="0.18em">EXECUTION RUNTIME</text>
+
+    <text x="110" y="668" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#172723">Local, Docker, and SSH targets</text>
+    <text x="110" y="692" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="500" fill="#55675F">Reproducible commands, live logs, metric extraction,</text>
+    <text x="110" y="712" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="500" fill="#55675F">checkpoints, and repair / degrade loops.</text>
+
+    <rect x="840" y="596" width="330" height="100" rx="24" fill="url(#execution)"/>
+    <text x="866" y="626" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#FFF7EA" letter-spacing="0.16em">RUN OUTPUTS</text>
+    <rect x="866" y="642" width="116" height="26" rx="13" fill="#F5E2C4"/>
+    <text x="924" y="659" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#7B4A12">stdout / stderr</text>
+    <rect x="994" y="642" width="144" height="26" rx="13" fill="#F5E2C4"/>
+    <text x="1066" y="659" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#7B4A12">run_metrics.json</text>
+    <rect x="866" y="676" width="272" height="26" rx="13" fill="#F5E2C4"/>
+    <text x="1002" y="693" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#7B4A12">workspace snapshot + generated paper assets</text>
   </g>
 
   <g>
-    <rect x="124" y="686" width="1032" height="30" rx="15" fill="#FFF8EF"/>
-    <text x="640" y="705" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#51625C">Dashboard -> API -> Worker -> Providers / Retrieval / Runtime -> Durable State + Artifacts -> Realtime UI updates</text>
+    <rect x="126" y="754" width="1028" height="30" rx="15" fill="#FFF8EF"/>
+    <text x="640" y="773" text-anchor="middle" font-family="'SF Pro Text', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#51625C">UI -&gt; API -&gt; Orchestrator -&gt; Runtime -&gt; State + artifacts -&gt; Live updates</text>
   </g>
 </svg>

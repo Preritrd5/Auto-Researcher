@@ -23,7 +23,15 @@ The GIF below is captured from a real local run of the app. It shows the English
 
 ![Auto-Researcher English setup view](./docs/images/dashboard-setup-en.png)
 
+![Auto-Researcher Chinese setup view](./docs/images/dashboard-setup-zh.png)
+
 ![Auto-Researcher Chinese pipeline view](./docs/images/dashboard-pipeline-zh.png)
+
+![Auto-Researcher Chinese research chat view](./docs/images/dashboard-chat-zh.png)
+
+![Auto-Researcher Chinese artifacts view](./docs/images/dashboard-artifacts-zh.png)
+
+![Auto-Researcher Chinese runs and metrics view](./docs/images/dashboard-runs-zh.png)
 </details>
 
 ## Architecture
