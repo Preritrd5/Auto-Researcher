@@ -15,7 +15,7 @@ Use this checklist before publishing a tagged release or marking a milestone as 
 
 - [ ] `README.md` reflects the current product scope
 - [ ] `README.zh-CN.md` is updated if user-facing setup changed
-- [ ] README showcase assets are current (`docs/images/readme-hero.svg`, `docs/images/readme-demo.gif`, `docs/images/architecture-overview.svg`)
+- [ ] README showcase assets are current (`docs/images/readme-hero.svg`, `docs/images/readme-demo.gif`, dashboard gallery screenshots)
 - [ ] `CONTRIBUTING.md` matches the current dev workflow
 - [ ] `docs/architecture.md` and `docs/runbook.md` are current
 - [ ] Breaking changes are documented clearly

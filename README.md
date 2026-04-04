@@ -36,9 +36,14 @@ The GIF below is captured from a real local run of the app. It shows the English
 
 ## Architecture
 
-![Auto-Researcher architecture overview](./docs/images/architecture-overview.svg)
-
 The platform is split into explicit control-plane, orchestration, and execution boundaries so long-running research loops stay recoverable and inspectable.
+
+- `Control Plane`: Next.js dashboard with bilingual setup, pipeline, chat, artifacts, and run history
+- `API Layer`: FastAPI + WebSockets for projects, providers, compute targets, runs, artifacts, and realtime streams
+- `Durable Orchestrator`: a DB-backed worker loop with leases, retries, checkpoints, recovery, and repair routing
+- `Execution + Storage`: `local`, `docker`, and `ssh` runtimes plus durable state for logs, metrics, memories, citations, and paper outputs
+
+For the longer architectural walkthrough, see [docs/architecture.md](./docs/architecture.md).
 
 ## Highlights
 

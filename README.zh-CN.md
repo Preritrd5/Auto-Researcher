@@ -36,9 +36,14 @@ Auto-Researcher 是一个面向单用户、自托管场景的 ML/AI 自动科研
 
 ## 架构概览
 
-![Auto-Researcher 架构图](./docs/images/architecture-overview.svg)
-
 整个平台把控制面、编排核心和执行平面拆成了明确边界，这样自动科研流程才能做到可恢复、可观测、可长期运行。
+
+- `Control Plane`：基于 Next.js 的控制台，负责双语切换、项目设置、流程看板、研究对话、产物与运行视图
+- `API Layer`：FastAPI + WebSocket，统一承载项目、模型、算力目标、运行控制、产物查询和实时事件流
+- `Durable Orchestrator`：数据库持久化 worker 循环，负责 stage 流转、retry、checkpoint、recovery 与 repair routing
+- `Execution + Storage`：`local`、`docker`、`ssh` 三类执行器，以及日志、指标、memory、citation、paper 输出等持久化结果
+
+更完整的架构说明可以看 [docs/architecture.md](./docs/architecture.md)。
 
 ## 核心特性
 
