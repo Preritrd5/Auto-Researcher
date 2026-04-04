@@ -15,6 +15,7 @@ Use this checklist before publishing a tagged release or marking a milestone as 
 
 - [ ] `README.md` reflects the current product scope
 - [ ] `README.zh-CN.md` is updated if user-facing setup changed
+- [ ] README showcase assets are current (`docs/images/readme-hero.svg`, `docs/images/readme-demo.gif`, `docs/images/architecture-overview.svg`)
 - [ ] `CONTRIBUTING.md` matches the current dev workflow
 - [ ] `docs/architecture.md` and `docs/runbook.md` are current
 - [ ] Breaking changes are documented clearly
@@ -47,6 +48,7 @@ Scripts:
 
 - [ ] Version number or release tag is decided
 - [ ] Release notes summarize major changes
+- [ ] `docs/images/social-preview.png` is uploaded in `Settings -> Social preview`
 - [ ] Known limitations are called out
 - [ ] License file is present
 - [ ] CI is green on the target branch
