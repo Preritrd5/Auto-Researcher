@@ -1,3 +1,18 @@
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  is_active: boolean;
+  created_at: string;
+};
+
+export type AuthResponse = {
+  access_token: string;
+  token_type: string;
+  user: User;
+};
+
 export type Budget = {
   id: string;
   max_cost_usd: number;
@@ -9,6 +24,7 @@ export type Budget = {
 
 export type Project = {
   id: string;
+  user_id?: string | null;
   name: string;
   slug: string;
   description: string;
@@ -19,6 +35,8 @@ export type Project = {
   default_compute_target_id?: string | null;
   settings: Record<string, unknown>;
   budget?: Budget | null;
+  created_at?: string;
+  updated_at?: string;
 };
 
 export type ModelProfile = {
@@ -67,6 +85,10 @@ export type Run = {
   total_cost_usd: number;
   total_tokens: number;
   failure_class?: string | null;
+  started_at?: string | null;
+  completed_at?: string | null;
+  created_at?: string | null;
+  updated_at?: string | null;
   stages: Stage[];
 };
 
@@ -91,4 +113,31 @@ export type BusEvent = {
   event_type: string;
   message: string;
   payload: Record<string, unknown>;
+  created_at?: string;
 };
+
+export type ChatMessage = {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+  model_name?: string | null;
+  degraded?: boolean;
+  created_at: string;
+};
+
+export type Citation = {
+  id: string;
+  run_id: string;
+  stage_id?: string | null;
+  source: string;
+  external_id?: string;
+  title: string;
+  authors: string[];
+  year?: number | null;
+  url: string;
+  doi?: string;
+  venue?: string;
+  verified: boolean;
+  created_at?: string;
+};
+

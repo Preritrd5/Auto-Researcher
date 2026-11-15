@@ -34,14 +34,22 @@ The GIF below is captured from a real local run of the app. It shows the English
 ![Auto-Researcher Chinese runs and metrics view](./docs/images/dashboard-runs-zh.png)
 </details>
 
-## Architecture
+## Platform Architecture & Application Pages
+
+The upgraded application provides an enterprise-ready, multi-page SaaS structure while strictly preserving all underlying research engine capabilities:
+
+- **Landing Page (`/`)**: Modern product showcase featuring a dynamic hero, interactive 10-stage pipeline overview, core architecture breakdown, research capabilities grid, and authentication CTAs.
+- **Operator Authentication (`/auth/login`, `/auth/register`)**: Real, secure JWT-based authentication with bcrypt password hashing, form validation, visibility toggles, and automatic redirect to dashboard upon authentication.
+- **User Dashboard (`/dashboard`)**: Central command center displaying live research metrics (active projects, total runs, success rates, token usage), budget health meters, recent activity logs, and quick project setup triggers.
+- **Research Console (`/dashboard/research`)**: 100% preservation of the original 5-pane research control center (Project Setup, Model Profiles, Compute Targets, Live Pipeline, Research Chat, Artifacts, Runs & Metrics, WebSockets, bilingual toggle).
+- **Settings & Config (`/dashboard/settings`)**: Operator profile management, model routing configuration, compute node status, and platform health telemetry.
 
 The platform is split into explicit control-plane, orchestration, and execution boundaries so long-running research loops stay recoverable and inspectable.
 
-- `Control Plane`: Next.js dashboard with bilingual setup, pipeline, chat, artifacts, and run history
-- `API Layer`: FastAPI + WebSockets for projects, providers, compute targets, runs, artifacts, and realtime streams
-- `Durable Orchestrator`: a DB-backed worker loop with leases, retries, checkpoints, recovery, and repair routing
-- `Execution + Storage`: `local`, `docker`, and `ssh` runtimes plus durable state for logs, metrics, memories, citations, and paper outputs
+- `Control Plane`: Next.js 15 App Router web application with modern Tailwind CSS styling, responsive layout, and bilingual support.
+- `API Layer`: FastAPI + WebSockets for authentication, projects, providers, compute targets, runs, artifacts, and realtime streams.
+- `Durable Orchestrator`: A DB-backed worker loop with leases, retries, checkpoints, recovery, and repair routing.
+- `Execution + Storage`: `local`, `docker`, and `ssh` runtimes plus durable state for logs, metrics, memories, citations, and paper outputs.
 
 For the longer architectural walkthrough, see [docs/architecture.md](./docs/architecture.md).
 
@@ -137,13 +145,21 @@ cd ..
 Start everything:
 
 ```bash
+# Linux / macOS / Git Bash:
 bash scripts/local-up.sh
+
+# Windows (PowerShell):
+powershell -ExecutionPolicy Bypass -File scripts/local-up.ps1
 ```
 
 Stop everything:
 
 ```bash
+# Linux / macOS / Git Bash:
 bash scripts/local-down.sh
+
+# Windows (PowerShell):
+powershell -ExecutionPolicy Bypass -File scripts/local-down.ps1
 ```
 
 Local runtime logs are written to `output/runtime/`.
@@ -192,8 +208,27 @@ Not included in v1:
 - cloud GPU leasing workflows
 - mobile notifications
 
+## Production Deployment & Cloud Launch
+
+Auto-Researcher is designed for scalable production deployment across enterprise cloud providers:
+
+- **Frontend Deployment**: Zero-config edge hosting on **Vercel** with Next.js 15, automated SSL, and security headers.
+- **Backend & Worker**: Containerized deployment on **Railway**, **Render**, **Fly.io**, or **AWS ECS** running FastAPI and the persistent autonomous research daemon.
+- **Database & Storage**: Managed **PostgreSQL 16** with `pgvector` (via Neon, Supabase, or RDS) and persistent volume storage for research artifacts.
+- **Realtime Event Streaming**: **Upstash Redis** or managed Redis for low-latency pub/sub WebSocket synchronization.
+
+For comprehensive operational runbooks:
+- 🚀 **[Production Deployment Guide](./DEPLOYMENT.md)** — Step-by-step instructions for Vercel, Railway, and Docker Compose.
+- 🔐 **[Environment Variables Reference](./ENVIRONMENT_VARIABLES.md)** — Complete dictionary of configuration keys and security guidelines.
+- 🗄️ **[Database Migration Guide](./DATABASE_MIGRATION.md)** — SQLite to PostgreSQL transition runbook and connection pooling.
+- ✅ **[Production Launch Checklist](./PRODUCTION_CHECKLIST.md)** — 20-point verification checklist before promoting to public traffic.
+
 ## Docs
 
+- [Production Deployment Guide](./DEPLOYMENT.md)
+- [Environment Variables Reference](./ENVIRONMENT_VARIABLES.md)
+- [Database Migration Guide](./DATABASE_MIGRATION.md)
+- [Production Launch Checklist](./PRODUCTION_CHECKLIST.md)
 - [Architecture](./docs/architecture.md)
 - [Data Contracts](./docs/data-contracts.md)
 - [Operator Runbook](./docs/runbook.md)

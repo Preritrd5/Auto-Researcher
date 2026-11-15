@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import time
 from collections.abc import AsyncIterator
 
 from redis.asyncio import Redis
@@ -13,7 +14,13 @@ from app.core.config import get_settings
 class EventBus:
     def __init__(self) -> None:
         self.settings = get_settings()
-        self._redis = Redis.from_url(self.settings.redis_url, decode_responses=True)
+        self._redis = Redis.from_url(
+            self.settings.redis_url,
+            decode_responses=True,
+            socket_connect_timeout=0.2,
+            socket_timeout=0.2,
+        )
+        self._redis_unavailable_until: float = 0.0
 
     @staticmethod
     def events_channel(run_id: str) -> str:
@@ -30,9 +37,12 @@ class EventBus:
         await self._publish(self.logs_channel(run_id), payload)
 
     async def _publish(self, channel: str, payload: dict) -> None:
+        if time.time() < self._redis_unavailable_until:
+            return
         try:
             await self._redis.publish(channel, json.dumps(payload, ensure_ascii=False))
-        except RedisError:
+        except (RedisError, OSError, TimeoutError):
+            self._redis_unavailable_until = time.time() + 5.0
             return
 
     async def subscribe(self, channel: str) -> AsyncIterator[dict]:
@@ -63,4 +73,4 @@ class EventBus:
                 await pubsub.unsubscribe(channel)
                 await pubsub.close()
             except RedisError:
-                return
+                pass

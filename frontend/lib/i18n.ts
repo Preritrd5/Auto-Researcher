@@ -91,7 +91,9 @@ export const dictionaries = {
       attempts: "Attempts",
       failureType: "Failure class",
       prompt: "Prompt",
-      latestStageOutput: "Latest stage output"
+      latestStageOutput: "Latest stage output",
+      retry: "Retry",
+      backendOffline: "Backend server appears offline or unreachable."
     },
     sidebar: {
       title: "Research Control Center",
@@ -268,7 +270,9 @@ export const dictionaries = {
       attempts: "尝试次数",
       failureType: "失败类型",
       prompt: "提示词",
-      latestStageOutput: "最新阶段输出"
+      latestStageOutput: "最新阶段输出",
+      retry: "重试",
+      backendOffline: "后端服务似乎未启动或无法连接。"
     },
     sidebar: {
       title: "自动科研控制台",

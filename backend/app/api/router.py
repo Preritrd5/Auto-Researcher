@@ -1,9 +1,10 @@
 from fastapi import APIRouter
 
-from app.api.routes import artifacts, chat, compute_targets, health, model_profiles, projects, providers, runs
+from app.api.routes import artifacts, auth, chat, compute_targets, health, model_profiles, projects, providers, runs
 
 api_router = APIRouter(prefix="/api")
 api_router.include_router(health.router)
+api_router.include_router(auth.router)
 api_router.include_router(projects.router)
 api_router.include_router(model_profiles.router)
 api_router.include_router(providers.router)

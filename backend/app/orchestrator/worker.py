@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 from datetime import timedelta
 from datetime import timezone
 
@@ -18,6 +19,10 @@ from app.retrieval.literature_search import LiteratureSearchService
 from app.services.artifact_store import ArtifactStore
 from app.services.event_bus import EventBus
 from app.services.provider_gateway import ProviderGateway
+
+logger = logging.getLogger("auto_researcher.worker")
+if not logger.handlers:
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 
 class ResearchWorker:
@@ -58,7 +63,9 @@ class ResearchWorker:
             if stage is None:
                 run.status = RunStatus.completed.value
                 run.completed_at = utcnow()
+                logger.info("[Worker %s] Run %s completed successfully.", self.worker_id, run.id)
                 await self._record_event(session, run.id, None, "run.completed", "Run completed")
+                await self._record_event(session, run.id, None, "log", "Run completed successfully across all stages.")
                 await session.flush()
                 await self.event_bus.publish_event(
                     run.id,
@@ -84,6 +91,7 @@ class ResearchWorker:
                 input_text=run.input_prompt,
             )
             session.add(task)
+            logger.info("[Worker %s] Run %s | Stage [%d/10: %s] started.", self.worker_id, run.id, stage.stage_index, stage.stage_key)
             await self._record_event(
                 session,
                 run.id,
@@ -91,6 +99,14 @@ class ResearchWorker:
                 "stage.started",
                 f"Stage {stage.stage_key} started",
                 {"attempt": stage.attempt_count},
+            )
+            await self._record_event(
+                session,
+                run.id,
+                stage.id,
+                "log",
+                f"[{stage.stage_key}] Started stage execution (attempt #{stage.attempt_count}).",
+                {"stage_key": stage.stage_key, "attempt": stage.attempt_count},
             )
             await session.flush()
             await self.event_bus.publish_event(
@@ -119,6 +135,7 @@ class ResearchWorker:
                     task.status = StageStatus.completed.value
                     task.output_text = str(result)
                     task.completed_at = utcnow()
+                logger.info("[Worker %s] Run %s | Stage [%s] completed successfully.", self.worker_id, run.id, stage.stage_key)
                 await self._record_event(
                     session,
                     run.id,
@@ -126,6 +143,14 @@ class ResearchWorker:
                     "stage.completed",
                     f"Stage {stage.stage_key} completed",
                     result,
+                )
+                await self._record_event(
+                    session,
+                    run.id,
+                    stage.id,
+                    "log",
+                    f"[{stage.stage_key}] Stage completed successfully.",
+                    {"stage_key": stage.stage_key, "result": result},
                 )
                 await session.flush()
                 await self.event_bus.publish_event(
@@ -165,6 +190,7 @@ class ResearchWorker:
                         run.completed_at = utcnow()
                     else:
                         current_stage.status = StageStatus.pending.value
+                    logger.error("[Worker %s] Run %s | Stage [%s] failed: %s (recoverable: %s)", self.worker_id, run.id, current_stage.stage_key, exc, decision.recoverable)
                     await self._record_event(
                         session,
                         run.id,
@@ -177,6 +203,14 @@ class ResearchWorker:
                             "next_action": decision.next_action,
                             "recoverable": decision.recoverable,
                         },
+                    )
+                    await self._record_event(
+                        session,
+                        run.id,
+                        current_stage.id,
+                        "log",
+                        f"[{current_stage.stage_key}] Execution failed: {exc}",
+                        {"stage_key": current_stage.stage_key, "error": str(exc)},
                     )
                     await session.flush()
                     await self.event_bus.publish_event(

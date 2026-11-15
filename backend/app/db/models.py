@@ -47,10 +47,27 @@ class StageStatus(str, Enum):
     degraded = "degraded"
 
 
+class User(Base, TimestampMixin):
+    __tablename__ = "users"
+
+    id: Mapped[str] = mapped_column(String(32), primary_key=True, default=new_id)
+    name: Mapped[str] = mapped_column(String(160))
+    email: Mapped[str] = mapped_column(String(255), unique=True, index=True)
+    hashed_password: Mapped[str] = mapped_column(String(255))
+    role: Mapped[str] = mapped_column(String(32), default="researcher")
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+
+    projects: Mapped[list["Project"]] = relationship(back_populates="owner")
+
+
 class Project(Base, TimestampMixin):
     __tablename__ = "projects"
 
     id: Mapped[str] = mapped_column(String(32), primary_key=True, default=new_id)
+    user_id: Mapped[str | None] = mapped_column(
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
     name: Mapped[str] = mapped_column(String(160))
     slug: Mapped[str] = mapped_column(String(180), unique=True, index=True)
     description: Mapped[str] = mapped_column(Text, default="")
@@ -70,6 +87,7 @@ class Project(Base, TimestampMixin):
     )
     settings: Mapped[dict] = mapped_column(JSON, default=dict)
 
+    owner: Mapped["User | None"] = relationship(back_populates="projects")
     budget: Mapped["Budget | None"] = relationship(back_populates="project", uselist=False)
     runs: Mapped[list["Run"]] = relationship(back_populates="project")
     memories: Mapped[list["Memory"]] = relationship(back_populates="project")

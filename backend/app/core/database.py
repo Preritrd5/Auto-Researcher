@@ -9,7 +9,18 @@ from app.core.config import get_settings
 
 settings = get_settings()
 
-engine = create_async_engine(settings.database_url, future=True, echo=False)
+engine_kwargs: dict = {"future": True, "echo": False}
+if "sqlite" not in settings.database_url:
+    engine_kwargs.update(
+        {
+            "pool_size": settings.db_pool_size,
+            "max_overflow": settings.db_max_overflow,
+            "pool_recycle": settings.db_pool_recycle,
+            "pool_pre_ping": True,
+        }
+    )
+
+engine = create_async_engine(settings.database_url, **engine_kwargs)
 SessionLocal = async_sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 

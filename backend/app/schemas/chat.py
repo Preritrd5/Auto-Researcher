@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime
 from pydantic import BaseModel
 
 
@@ -14,4 +15,14 @@ class ChatResponse(BaseModel):
     reply: str
     model_name: str
     degraded: bool = False
+
+
+class ChatMessageRead(BaseModel):
+    id: str
+    role: str  # "user" | "assistant"
+    content: str
+    model_name: str | None = None
+    degraded: bool = False
+    created_at: datetime
+
 

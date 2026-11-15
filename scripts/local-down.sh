@@ -39,6 +39,9 @@ stop_service() {
   done
 
   kill -9 "$pid" >/dev/null 2>&1 || true
+  if command -v taskkill >/dev/null 2>&1; then
+    taskkill //F //PID "$pid" >/dev/null 2>&1 || true
+  fi
   rm -f "$pid_file"
   echo "Force-stopped $name."
 }

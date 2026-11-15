@@ -27,6 +27,33 @@ class StageRead(ORMModel):
     output_snapshot: dict
 
 
+class EventRead(ORMModel):
+    id: str
+    run_id: str
+    stage_id: str | None = None
+    level: str = "info"
+    event_type: str
+    message: str
+    payload: dict = Field(default_factory=dict)
+    created_at: datetime
+
+
+class CitationRead(ORMModel):
+    id: str
+    run_id: str
+    stage_id: str | None = None
+    source: str
+    external_id: str = ""
+    title: str
+    authors: list[str] = Field(default_factory=list)
+    year: int | None = None
+    url: str = ""
+    doi: str = ""
+    venue: str = ""
+    verified: bool = False
+    created_at: datetime
+
+
 class RunRead(ORMModel):
     id: str
     project_id: str
@@ -42,5 +69,7 @@ class RunRead(ORMModel):
     failure_class: str | None = None
     started_at: datetime | None = None
     completed_at: datetime | None = None
+    created_at: datetime | None = None
+    updated_at: datetime | None = None
     stages: list[StageRead] = []
 

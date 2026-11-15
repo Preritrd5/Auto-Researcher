@@ -1,0 +1,104 @@
+# ==============================================================================
+# Auto-Researcher Production Docker Compose Configuration
+# Complete multi-container deployment stack:
+# - PostgreSQL 16 with pgvector extension
+# - Redis 7 in-memory cache & realtime event bus
+# - FastAPI Backend Web API service
+# - Dedicated Background Research Worker Daemon
+# ==============================================================================
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: auto-researcher-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-auto_researcher}
+      POSTGRES_USER: ${POSTGRES_USER:-auto_researcher}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-auto_researcher_prod_pass}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-auto_researcher}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: auto-researcher-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: auto-researcher-backend-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      AUTO_RESEARCHER_ENV: production
+      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://${POSTGRES_USER:-auto_researcher}:${POSTGRES_PASSWORD:-auto_researcher_prod_pass}@postgres:5432/${POSTGRES_DB:-auto_researcher}}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      ARTIFACTS_ROOT: /app/artifacts
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,https://auto-researcher.vercel.app}
+    ports:
+      - "8000:8000"
+    volumes:
+      - artifacts_data:/app/artifacts
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  backend-worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: auto-researcher-backend-worker
+    restart: unless-stopped
+    command: ["uv", "run", "python", "worker.py"]
+    env_file:
+      - .env
+    environment:
+      AUTO_RESEARCHER_ENV: production
+      DATABASE_URL: ${DATABASE_URL:-postgresql+asyncpg://${POSTGRES_USER:-auto_researcher}:${POSTGRES_PASSWORD:-auto_researcher_prod_pass}@postgres:5432/${POSTGRES_DB:-auto_researcher}}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      ARTIFACTS_ROOT: /app/artifacts
+    volumes:
+      - artifacts_data:/app/artifacts
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend-api:
+        condition: service_started
+
+volumes:
+  postgres_data:
+    name: auto_researcher_postgres_data
+  redis_data:
+    name: auto_researcher_redis_data
+  artifacts_data:
+    name: auto_researcher_artifacts_data

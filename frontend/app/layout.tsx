@@ -3,6 +3,7 @@ import { JetBrains_Mono, Source_Serif_4, Space_Grotesk } from "next/font/google"
 import type { ReactNode } from "react";
 
 import { languageMeta } from "@/lib/i18n";
+import { AuthProvider } from "@/components/auth/auth-context";
 
 import "./globals.css";
 
@@ -37,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang={languageMeta.en.htmlLang}>
       <body className={`${sans.variable} ${serif.variable} ${mono.variable} font-sans`}>
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

@@ -26,10 +26,27 @@ class ChatService:
             session, model_profile_id or project.primary_model_profile_id
         )
         context_result = await session.execute(
-            select(Memory).where(Memory.project_id == project_id).order_by(Memory.created_at.desc()).limit(5)
+            select(Memory)
+            .where(Memory.project_id == project_id, Memory.category != "chat_message")
+            .order_by(Memory.created_at.desc())
+            .limit(6)
         )
         memories = list(context_result.scalars())
         context = "\n".join(f"- {memory.category}: {memory.content[:240]}" for memory in memories)
+
+        # Retrieve prior chat dialogue for conversational continuity
+        chat_history_result = await session.execute(
+            select(Memory)
+            .where(Memory.project_id == project_id, Memory.category == "chat_message")
+            .order_by(Memory.created_at.desc())
+            .limit(8)
+        )
+        recent_chats = list(reversed(list(chat_history_result.scalars())))
+        formatted_history = "\n".join(
+            f"{'Researcher' if row.memory_metadata.get('role') == 'user' else 'Auto-Researcher'}: {row.content}"
+            for row in recent_chats
+        )
+
         if profile is None:
             degraded_reply = (
                 f"Project '{project.name}' is running in template mode.\n\n"
@@ -38,6 +55,15 @@ class ChatService:
                 f"Operator note: {message}"
             )
             return degraded_reply, "template-fallback", True
+
+        conversation_prompt = (
+            f"Project: {project.name}\n"
+            f"Objective: {project.objective or project.description}\n"
+            f"Recent memory:\n{context or '- none'}\n"
+        )
+        if formatted_history:
+            conversation_prompt += f"\nPrior dialogue:\n{formatted_history}\n"
+        conversation_prompt += f"\nResearcher message: {message}"
 
         result = await self.gateway.chat(
             profile,
@@ -51,12 +77,7 @@ class ChatService:
                 },
                 {
                     "role": "user",
-                    "content": (
-                        f"Project: {project.name}\n"
-                        f"Objective: {project.objective or project.description}\n"
-                        f"Recent memory:\n{context or '- none'}\n\n"
-                        f"User message: {message}"
-                    ),
+                    "content": conversation_prompt,
                 },
             ],
         )

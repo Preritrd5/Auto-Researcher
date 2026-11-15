@@ -21,9 +21,16 @@ if [[ -f "$ROOT_DIR/.env" ]]; then
   set +a
 fi
 
-export DATABASE_URL="sqlite+aiosqlite:///$ROOT_DIR/backend/auto_researcher.db"
+if command -v cygpath >/dev/null 2>&1; then
+  NATIVE_ROOT_DIR="$(cygpath -m "$ROOT_DIR")"
+else
+  NATIVE_ROOT_DIR="$ROOT_DIR"
+fi
+
+DB_PATH="$(cygpath -m "$ROOT_DIR/backend/auto_researcher.db")"
+export DATABASE_URL="sqlite+aiosqlite:///$DB_PATH"
 export REDIS_URL="${REDIS_URL:-redis://localhost:6379/0}"
-export ARTIFACTS_ROOT="$ROOT_DIR/artifacts"
+export ARTIFACTS_ROOT="$NATIVE_ROOT_DIR/artifacts"
 export NEXT_PUBLIC_API_BASE_URL="http://127.0.0.1:8000"
 export NEXT_PUBLIC_WS_BASE_URL="ws://127.0.0.1:8000"
 

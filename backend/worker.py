@@ -10,6 +10,7 @@ from app.orchestrator.worker import ResearchWorker
 async def main() -> None:
     await create_all_tables()
     worker_id = f"{socket.gethostname()}-worker"
+    print(f"[Worker Init] Auto-Researcher worker daemon online: {worker_id}")
     worker = ResearchWorker(worker_id=worker_id)
     await worker.run_forever()
 

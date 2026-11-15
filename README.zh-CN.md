@@ -34,12 +34,20 @@ Auto-Researcher 是一个面向单用户、自托管场景的 ML/AI 自动科研
 ![Auto-Researcher 中文运行与指标界面](./docs/images/dashboard-runs-zh.png)
 </details>
 
-## 架构概览
+## 平台架构与页面结构
 
-整个平台把控制面、编排核心和执行平面拆成了明确边界，这样自动科研流程才能做到可恢复、可观测、可长期运行。
+系统现已升级为完整的企业级多页面 SaaS 结构，并 100% 完整保留了原有的科研编排能力：
 
-- `Control Plane`：基于 Next.js 的控制台，负责双语切换、项目设置、流程看板、研究对话、产物与运行视图
-- `API Layer`：FastAPI + WebSocket，统一承载项目、模型、算力目标、运行控制、产物查询和实时事件流
+- **产品首页 (`/`)**：现代化产品 Landing Page，包含产品定位、动态 10 阶段科研生命周期看板、核心技术架构概览、能力矩阵及登录入口。
+- **操作员身份认证 (`/auth/login`, `/auth/register`)**：基于 JWT 与 bcrypt 的密码加密认证体系，提供表单校验、明文显隐切换及认证状态路由重定向。
+- **科研总览工作台 (`/dashboard`)**：直观展示科研项目总览、运行状态指标、Token/预算消耗看板与快捷操作。
+- **科研全能控制台 (`/dashboard/research`)**：完整保留原有的 5 大工作区（项目配置、模型管理、算力配置、实时流水线、科研对话、产物浏览器、运行记录与指标，支持中英文即时切换与实时 WebSocket 状态推送）。
+- **系统设置与环境 (`/dashboard/settings`)**：管理科研人员身份信息、模型路由规则、计算节点状态及平台服务健康度。
+
+整个平台把控制面、编排核心和执行平面拆成了明确边界，这样自动科研流程才能做到可恢复、可观测、可长期运行：
+
+- `Control Plane`：基于 Next.js 15 App Router 的现代化控制台，具备响应式设计与中英双语支持
+- `API Layer`：FastAPI + WebSocket，统一承载用户认证、项目、模型、算力目标、运行控制、产物查询和实时事件流
 - `Durable Orchestrator`：数据库持久化 worker 循环，负责 stage 流转、retry、checkpoint、recovery 与 repair routing
 - `Execution + Storage`：`local`、`docker`、`ssh` 三类执行器，以及日志、指标、memory、citation、paper 输出等持久化结果
 
@@ -149,13 +157,21 @@ cd ..
 启动：
 
 ```bash
+# Linux / macOS / Git Bash:
 bash scripts/local-up.sh
+
+# Windows (PowerShell):
+powershell -ExecutionPolicy Bypass -File scripts/local-up.ps1
 ```
 
 关闭：
 
 ```bash
+# Linux / macOS / Git Bash:
 bash scripts/local-down.sh
+
+# Windows (PowerShell):
+powershell -ExecutionPolicy Bypass -File scripts/local-down.ps1
 ```
 
 运行日志会写到 `output/runtime/`。

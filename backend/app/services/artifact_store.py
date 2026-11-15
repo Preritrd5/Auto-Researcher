@@ -113,7 +113,7 @@ class ArtifactStore:
         metadata: dict[str, Any],
     ) -> Artifact:
         checksum = hashlib.sha256(path.read_bytes()).hexdigest()
-        relative_path = str(path.relative_to(self.run_root(project_id, run_id)))
+        relative_path = path.relative_to(self.run_root(project_id, run_id)).as_posix()
         artifact = Artifact(
             run_id=run_id,
             stage_id=stage.id,
@@ -129,5 +129,10 @@ class ArtifactStore:
         return artifact
 
     def read_artifact_content(self, project_id: str, run_id: str, relative_path: str) -> str:
-        path = self.run_root(project_id, run_id) / relative_path
+        root = self.run_root(project_id, run_id).resolve()
+        path = (root / relative_path).resolve()
+        if not path.is_relative_to(root):
+            raise PermissionError("Path traversal detected")
+        if not path.is_file():
+            raise FileNotFoundError(f"Artifact file not found: {relative_path}")
         return path.read_text(encoding="utf-8")
