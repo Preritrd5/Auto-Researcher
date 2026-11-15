@@ -59,7 +59,7 @@ export function LandingFooter() {
             <ul className="space-y-2 text-xs">
               <li>
                 <a
-                  href="https://github.com/Haoqin860/auto-researcher"
+                  href="https://github.com/Preritrd5/Auto-Researcher"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-ink transition"
